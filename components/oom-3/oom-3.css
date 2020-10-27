@@ -1,0 +1,8 @@
+@import '../oom/oom.css';
+
+/* WRAP */
+.wrap {
+    top: 0; left: 0;
+    outline: none!important; /* on focus */
+    transform-style: preserve-3d;
+}

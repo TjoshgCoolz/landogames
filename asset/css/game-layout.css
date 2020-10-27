@@ -1,0 +1,183 @@
+/* LAYOUT FOR game.html */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.game-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.game-table-row {
+    display: table-row;
+}
+.game-table-cell {
+    display: table-cell;
+}
+
+
+
+
+/* BUTTONS */
+
+.game-button {
+    /* display: inline-block; */
+    display: none;
+    text-align: center;
+    cursor: pointer;
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 2vmin;
+    font-size: 8vmin;
+}
+
+
+
+
+/* LEFT-RIGHT BUTTONS */
+
+.left-right.game-buttons .game-table-cell {
+    height: 24vmin;
+    vertical-align: middle;
+}
+.left.game-buttons .game-table-cell {
+    padding-left: 2vmin;
+    text-align: left;
+}
+.right.game-buttons .game-table-cell {
+    padding-right: 2vmin;
+    text-align: right;
+}
+.left-right.game-buttons .game-buttons-gap {
+    height: auto;
+}
+
+@media screen and (orientation: landscape) {
+    .bottom.game-buttons {
+        display: none;
+    }
+    .game-table-row.game-buttons-gap {
+        display: none;
+    }
+}
+
+/* eg iPad landscape. In future, use something like: */
+/* @media screen and (min-aspect-ratio: 1024/700) and (min-aspect-ratio: 1024/800) { */
+/* @TODO iPad Pro */
+@media screen
+    and (max-width: 1110px)
+    and (min-height: 700px) and (max-height: 768px)
+    and (orientation: landscape)
+{
+    .left-right.game-buttons .game-table-cell {
+        height: 18vmin;
+    }
+    .left-right.game-buttons .game-buttons-gap {
+        height: auto;
+    }
+    .game-button {
+        width: 14vmin;
+        height: 14vmin;
+        border-radius: 1.5vmin;
+        font-size: 6vmin;
+    }
+}
+
+
+
+
+/* BOTTOM BUTTONS */
+
+.game-table-row.game-buttons-gap .game-table-cell {
+    height: auto;
+}
+.bottom {
+    height: 48vmin;
+}
+.bottom .game-table {
+    height: 24vmin;
+}
+.bottom .game-table-cell {
+    padding-top: 2vmin;
+    text-align: center;
+}
+.ipad-portrait {
+    display: none;
+}
+
+@media screen and (orientation: portrait) {
+    .left-right.game-buttons {
+        display: none;
+    }
+}
+
+/* eg iPad portrait. In future, use something like: */
+/* @media screen and (min-aspect-ratio: 800/1024) and (min-aspect-ratio: 700/1024) { */
+/* @TODO iPad Pro */
+@media screen
+    and (min-width: 700px) and (max-width: 768px)
+    and (max-height: 1110px)
+    and (orientation: portrait)
+{
+    .bottom {
+        height: 16vmin;
+    }
+    .bottom .game-table {
+        height: 16vmin;
+    }
+    .game-button {
+        width: 12vmin;
+        height: 12vmin;
+        border-radius: 1.25vmin;
+        font-size: 5vmin;
+    }
+    .ipad-portrait {
+        display: table-cell;
+    }
+    .not-ipad-portrait {
+        display: none;
+    }
+}
+
+
+
+
+/* SQUARE */
+
+.oom-container-wrap {
+    text-align: center;
+    vertical-align: middle;
+}
+.oom-container {
+    display: inline-block;
+}
+
+@media screen and (orientation: landscape) {
+    .oom-container-wrap {
+        width: 100vmin;
+        height: 100vmin;
+        min-width: 100vmin;
+        padding: 1vmin 0 0 0;
+    }
+    .oom-container {
+        width: 96vmin;
+        height: 96vmin;
+        border-radius: 2vmin;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .oom-container-wrap {
+        width: 100vmin;
+        height: 100vmin;
+        padding: 1vmin 0 0 0;
+    }
+    .oom-container {
+        width: 96vmin;
+        height: 96vmin;
+        border-radius: 2vmin;
+    }
+}

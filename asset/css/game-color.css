@@ -1,0 +1,46 @@
+/* COLOR FOR game.html */
+
+:root {
+    --fog-color: #49A0E7;
+    --hover-surround-color: #3cf;
+    --shadow-color: #49A0E7cc;
+}
+
+html, body {
+    background: var(--fog-color);
+}
+
+
+
+
+/* BUTTONS */
+
+.game-button {
+    background: #e0c;
+    color: #ddd;
+    transition: background-color 0.2s, color 0.3s;
+}
+.game-button:hover {
+    background: #f0e;
+    color: #fff;
+}
+.game-button:active {
+    background: #c0a;
+    color: #fff;
+}
+.game-button:focus {
+    box-shadow: #fff 0 0 1vh;
+}
+
+
+
+
+/* SQUARE */
+
+.oom-container {
+}
+
+.location {
+    background: #fff9;
+    box-shadow: #fff9 0 0 5vmin 5vmin;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML><html lang="en-GB">
+<head><meta charset="utf-8">
+<title>Oom3MassCloud Demo</title>
+
+<style>
+    :root {
+        --fog-color: #9a3;
+        --hover-surround-color: #dfc;
+        --shadow-color: #906c;
+    }
+    body {
+        margin: 0;
+        font: 18px Arial;
+        color: var(--fog-color);
+    }
+    .oom-container {
+        position: absolute;
+        top: 50%; left: 50%; width: 96vmin; height: 96vmin;
+        margin: -48vmin 0 0 -48vmin;
+        background: linear-gradient(
+            #fa9, var(--hover-surround-color) 11%,
+            var(--fog-color) 12%, #ca6 75%
+        );
+        border-radius: 2vmin;
+        perspective-origin: 50% -10%;
+        perspective: 80vmin;
+        z-index: -99999;
+    }
+    #clearing {
+        position: absolute;
+        width: 96vmin;
+        height: 96vmin;
+        background: #fff3;
+        box-shadow: #fff3 0 0 5vmin 5vmin;
+        transform-origin: center;
+        transform: translate3d(0,24vmin,-48vmin) rotateX(90deg);
+        z-index: -99998;
+    }
+</style>
+
+<!-- Polyfill ‘HTML Imports’ for legacy browsers -->
+<script src="../../asset/js/webcomponents-lite.js"></script>
+
+<!-- Import ‘oom-all.html’ which will load each <oom-*> component -->
+<link rel="import" href="../oom-all.html">
+
+</head><body class="oom-dev">
+
+
+<div class="oom-container">
+  <div id="clearing"></div>
+  <oom-3 x="10" y="0" z="0" title="Front Left" marker="green"></oom-3>
+
+  <!-- Use the component -->
+  <oom-3-mass-cloud x="0"  y="0" z="96" title="Back Left" marker="red" weather="fair"></oom-3-mass-cloud>
+  <oom-3-mass-cloud x="96" y="0" z="96" title="Back Right" marker="green" weather="storm"></oom-3-mass-cloud>
+  <oom-3-mass-cloud x="0"  y="0" z="0" title="Front Left" marker="none" weather="lightning"></oom-3-mass-cloud>
+  <oom-3-mass-cloud x="96" y="0" z="0" title="Front Right" marker="red"></oom-3-mass-cloud>
+
+  <oom-3-mass-cloud x="5"  y="0" z="5" title="With no marker" weather="storm"></oom-3-mass-cloud>
+
+</div>
+
+<h1 style="position:absolute; width:100%; text-align:center; z-index:99">
+  Oom3MassCloud Demo
+</h1>
+
+<script>{
+const d=document, $=d.querySelector.bind(d)
+$('#clearing').addEventListener('click',function(e){
+    $el=d.createElement('oom-3-mass-cloud')
+    $el.setAttribute( 'x', Math.random()*100 )
+    $el.setAttribute( 'z', Math.random()*100 )
+    $el.setAttribute('weather','fair,storm,lightning'.split(',')[~~(Math.random()*3)])
+    $el.setAttribute('marker','red,green,blue'.split(',')[~~(Math.random()*3)])
+    $('.oom-container').appendChild($el)
+})}</script>
+
+
+<!-- Make sure 'metabolism' and `tick()` are working -->
+<script>{
+// animate()
+function animate (now) {
+    window.requestAnimationFrame(animate)
+    triggerTicks(now)
+}
+
+//// Triggers the `tick()` method of any element which needs it.
+function triggerTicks (now) {
+    const fn = $el => {
+        if (! $el.oom) return
+        const { metabolism, prevTick } = $el.oom.current
+        if ( prevTick + metabolism < now)
+            $el.dispatchEvent( new CustomEvent('tick', { detail:now }) )
+    }
+    // Array.from( document.querySelectorAll('oom-3') ).map(fn)
+    [document.querySelector('oom-3-mass-cloud[weather=lightning]')].map(fn)
+}
+
+}</script>
+
+</body></html>

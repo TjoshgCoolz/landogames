@@ -1,0 +1,49 @@
+<!--
+A hot air balloon, to play hide and seek with.
+1. Define the #oom-3-mass-balloon template
+2. Load a JS module defining:
+  - The Oom3MassBalloon class
+  - The <oom-3-mass-balloon> custom element
+-->
+
+
+<!-- 1. Define the #oom-3-mass-balloon template -->
+<template id="oom-3-mass-balloon">
+
+  <div class="wrap" tabindex="1">
+    <div class="hitzone">
+      <div class="upper canopy"></div>
+      <div class="lower canopy"></div>
+      <div class="basket"></div>
+    </div>
+    <div class="main">
+      <div class="upper canopy"></div>
+      <div class="lower canopy"></div>
+      <div class="basket"></div>
+    </div>
+    <div class="silhouette">
+      <div class="upper canopy"></div>
+      <div class="lower canopy"></div>
+      <div class="basket"></div>
+    </div>
+    <div class="surround">
+      <div class="upper canopy"></div>
+      <div class="lower canopy"></div>
+      <div class="basket"></div>
+    </div>
+  </div>
+  <div class="ground">
+    <div class="shadow"></div>
+    <div class="marker"></div>
+  </div>
+
+</template>
+
+
+<!-- 2. Load a JS module defining the class and custom element -->
+<script type="module" src="./oom-3-mass-balloon.js"></script>
+
+<!-- Redo 2. for browsers without native ‘HTML Imports’ support, eg Safari -->
+<script>((d,f)=>d.head.appendChild(Object.assign(d.createElement('script'),{type
+:'module',src:d.querySelector(`link[rel="import"][href$="${f}"]`).href.replace(f
+,'oom-3-mass-balloon/oom-3-mass-balloon.js')})))(document,'oom-all.html')</script>

@@ -1,0 +1,32 @@
+<!--
+A gameplay area, usually containing a prevailing wind.
+1. Define the #oom-3-location template
+2. Load a JS module defining:
+  - The Oom3Location class
+  - The <oom-3-location> custom element
+-->
+
+
+<!-- 1. Define the #oom-3-location template -->
+<template id="oom-3-location">
+
+  <div class="wrap">
+    <div class="main">
+      <div class="mid"></div>
+      <div class="n lug"></div>
+      <div class="e lug"></div>
+      <div class="s lug"></div>
+      <div class="w lug"></div>
+    </div>
+  </div>
+
+</template>
+
+
+<!-- 2. Load a JS module defining the class and custom element -->
+<script type="module" src="./oom-3-location.js"></script>
+
+<!-- Redo 2. for browsers without native ‘HTML Imports’ support, eg Safari -->
+<script>((d,f)=>d.head.appendChild(Object.assign(d.createElement('script'),{type
+:'module',src:d.querySelector(`link[rel="import"][href$="${f}"]`).href.replace(f
+,'oom-3-location/oom-3-location.js')})))(document,'oom-all.html')</script>

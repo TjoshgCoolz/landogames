@@ -1,0 +1,49 @@
+<!--
+A fluffy cloud, to hide your balloon behind.
+1. Define the #oom-3-mass-cloud template
+2. Load a JS module defining:
+  - The Oom3MassCloud class
+  - The <oom-3-mass-cloud> custom element
+-->
+
+
+<!-- 1. Define the #oom-3-mass-cloud template -->
+<template id="oom-3-mass-cloud">
+
+  <div class="wrap" tabindex="1">
+    <div class="hitzone">
+      <div class="left blob"></div>
+      <div class="mid blob"></div>
+      <div class="right blob"></div>
+    </div>
+    <div class="main">
+      <div class="left blob"></div>
+      <div class="mid blob"></div>
+      <div class="right blob"></div>
+    </div>
+    <div class="silhouette">
+      <div class="left blob"></div>
+      <div class="mid blob"></div>
+      <div class="right blob"></div>
+    </div>
+    <div class="surround">
+      <div class="left blob"></div>
+      <div class="mid blob"></div>
+      <div class="right blob"></div>
+    </div>
+  </div>
+  <div class="ground">
+    <div class="shadow"></div>
+    <div class="marker"></div>
+  </div>
+
+</template>
+
+
+<!-- 2. Load a JS module defining the class and custom element -->
+<script type="module" src="./oom-3-mass-cloud.js"></script>
+
+<!-- Redo 2. for browsers without native ‘HTML Imports’ support, eg Safari -->
+<script>((d,f)=>d.head.appendChild(Object.assign(d.createElement('script'),{type
+:'module',src:d.querySelector(`link[rel="import"][href$="${f}"]`).href.replace(f
+,'oom-3-mass-cloud/oom-3-mass-cloud.js')})))(document,'oom-all.html')</script>
